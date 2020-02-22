@@ -8,7 +8,7 @@ namespace MoodAnalyzerProblem
         {
             Console.WriteLine("Enter the mood message: ");
             string message = Console.ReadLine();
-            HappyOrSadMood mood = new HappyOrSadMood(message);
+            HappyOrSadMood mood = new HappyOrSadMood(null);
             string Mood=mood.AnalyseMood();
             Console.WriteLine(Mood);
         }
