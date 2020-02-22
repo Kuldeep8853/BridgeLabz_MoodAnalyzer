@@ -1,0 +1,11 @@
+D:\BridgeLabz_MoodAnalyzer\MoodAnalyzerProblem\bin\Debug\netcoreapp3.1\MoodAnalyzerProblem.exe
+D:\BridgeLabz_MoodAnalyzer\MoodAnalyzerProblem\bin\Debug\netcoreapp3.1\MoodAnalyzerProblem.deps.json
+D:\BridgeLabz_MoodAnalyzer\MoodAnalyzerProblem\bin\Debug\netcoreapp3.1\MoodAnalyzerProblem.runtimeconfig.json
+D:\BridgeLabz_MoodAnalyzer\MoodAnalyzerProblem\bin\Debug\netcoreapp3.1\MoodAnalyzerProblem.runtimeconfig.dev.json
+D:\BridgeLabz_MoodAnalyzer\MoodAnalyzerProblem\bin\Debug\netcoreapp3.1\MoodAnalyzerProblem.dll
+D:\BridgeLabz_MoodAnalyzer\MoodAnalyzerProblem\bin\Debug\netcoreapp3.1\MoodAnalyzerProblem.pdb
+D:\BridgeLabz_MoodAnalyzer\MoodAnalyzerProblem\obj\Debug\netcoreapp3.1\MoodAnalyzerProblem.csprojAssemblyReference.cache
+D:\BridgeLabz_MoodAnalyzer\MoodAnalyzerProblem\obj\Debug\netcoreapp3.1\MoodAnalyzerProblem.AssemblyInfoInputs.cache
+D:\BridgeLabz_MoodAnalyzer\MoodAnalyzerProblem\obj\Debug\netcoreapp3.1\MoodAnalyzerProblem.AssemblyInfo.cs
+D:\BridgeLabz_MoodAnalyzer\MoodAnalyzerProblem\obj\Debug\netcoreapp3.1\MoodAnalyzerProblem.dll
+D:\BridgeLabz_MoodAnalyzer\MoodAnalyzerProblem\obj\Debug\netcoreapp3.1\MoodAnalyzerProblem.pdb
