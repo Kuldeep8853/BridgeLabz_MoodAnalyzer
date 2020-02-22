@@ -4,17 +4,18 @@
 // </copyright>
 // <creator name="Kuldeep Kasaudhan"/>
 // ----------------------------------------------------------------------------------------------------------------------
+using System;
+
 namespace MoodAnalyzerProblem
 {
     /// <summary>
     /// Check mood sad or happy
     /// </summary>
-    public class HappyOrSadMood{
+    public class HappyOrSadMood {
         private string message;
 
         public HappyOrSadMood()
         {
-           message = null;
         }
         public HappyOrSadMood(string mesaage)
         {
@@ -22,12 +23,24 @@ namespace MoodAnalyzerProblem
         }
         public string AnalyseMood()
         {
-            if(message.Equals("I am in sad mood"))
+            try
             {
-                return "Sad";
+                if (message == null)
+                {
+                    throw new NullReferenceException();
+                }
+                if (message.Contains("sad"))
+                {
+                    return "Sad";
+                }
+                else
+                    return "Happy";
             }
-            return "Happy";
+            catch (NullReferenceException)
+            {
+                Console.WriteLine("NULL EXCEPTION CAUGHT");
+                return "Happy";
+            }
         }
-
     }
 }
