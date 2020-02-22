@@ -10,7 +10,17 @@ namespace MoodAnalyzerProblem
     /// Check mood sad or happy
     /// </summary>
     public class HappyOrSadMood{
-       public string AnalyseMood(string message)
+        private string message;
+
+        public HappyOrSadMood()
+        {
+           message = null;
+        }
+        public HappyOrSadMood(string mesaage)
+        {
+            message = mesaage;
+        }
+        public string AnalyseMood()
         {
             if(message.Equals("I am in sad mood"))
             {

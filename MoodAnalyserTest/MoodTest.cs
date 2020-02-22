@@ -1,6 +1,5 @@
 using MoodAnalyzerProblem;
 using NUnit.Framework;
-using System;
 
 namespace MoodAnalyserTest
 {
@@ -14,9 +13,9 @@ namespace MoodAnalyserTest
         [TestCase]
         public void AnalyseSadMoodTest()
         {
-            HappyOrSadMood mood = new HappyOrSadMood();
+            HappyOrSadMood mood = new HappyOrSadMood("I am in sad mood");
             string expected = "Sad";
-            string actualResult = mood.AnalyseMood("I am in sad mood");
+            string actualResult = mood.AnalyseMood();
             Assert.AreEqual(actualResult,expected);
         }
 
@@ -27,9 +26,9 @@ namespace MoodAnalyserTest
         [TestCase]
         public void AnalyseHappyMoodTest()
         {
-            HappyOrSadMood mood = new HappyOrSadMood();
+            HappyOrSadMood mood = new HappyOrSadMood("I am in any mood");
             string expected = "Happy";
-            string actualResult = mood.AnalyseMood("I am in any mood");
+            string actualResult = mood.AnalyseMood();
             Assert.AreEqual(actualResult, expected);
         }
     }
