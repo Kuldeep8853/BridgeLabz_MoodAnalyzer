@@ -13,7 +13,7 @@ namespace MoodAnalyserTest
     public class Tests
     {
         /// <summary>
-        /// test case 4.1
+        /// test case 5.1
         /// check Object are equal are not
         /// </summary>
         [TestCase]
@@ -26,7 +26,7 @@ namespace MoodAnalyserTest
         }
 
         /// <summary>
-        /// test case 4.2
+        /// test case 5.2
         /// Throw exception 
         /// </summary>
         [TestCase]
@@ -39,7 +39,7 @@ namespace MoodAnalyserTest
         }
 
         /// <summary>
-        /// test case 4.3
+        /// test case 5.3
         /// Constructor Not Proper Should Throw MoodAnalysisException
         /// </summary>
         [TestCase]
