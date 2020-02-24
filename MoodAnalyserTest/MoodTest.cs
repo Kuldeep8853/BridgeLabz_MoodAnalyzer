@@ -1,12 +1,11 @@
 // --------------------------------------------------------------------------------------------------------------------
-// <copyright file=HappyOrSadMood.cs" Company="Bridgelabz">
+// <copyright Project=MoodAnalyzerProblem" Company="Bridgelabz">
 //   Copyright © 2020 Company="BridgeLabz"
 // </copyright>
 // <creator name="Kuldeep Kasaudhan"/>
 // --------------------------------------------------------------------------------------------------------------------
 using MoodAnalyzerProblem;
 using NUnit.Framework;
-using System;
 
 namespace MoodAnalyserTest
 {
@@ -14,17 +13,42 @@ namespace MoodAnalyserTest
     public class Tests
     {
         /// <summary>
-        /// test case 3.1
-        /// Given Empty Mood
-        /// Should Throw MoodAnalysisException indicating Empty Mood
+        /// test case 4.1
+        /// check Object are equal are not
         /// </summary>
         [TestCase]
-        public void AnalyserMoodNULLTest()
+        public void AnalyserMoodObjectTest()
         {
-                HappyOrSadMood mood = new HappyOrSadMood(null);
-                string expected = "null exception caught";
-                string actualResult = mood.AnalyseMood();
-                Assert.AreEqual(actualResult, expected);
+                HappyOrSadMood mood = new HappyOrSadMood();
+                 bool actual = mood.Equals(MoodFactory.CreatehappyOrSadMood("HappyOrSadMood"));
+                   bool expected = true; 
+                Assert.AreEqual(actual, expected);
+        }
+
+        /// <summary>
+        /// test case 4.2
+        /// Throw exception 
+        /// </summary>
+        [TestCase]
+        public void AnalyserMoodExceptionTest()
+        {
+            HappyOrSadMood mood = new HappyOrSadMood();
+            string actual = mood.AnalyseMood();
+            string expected = "null exception caught";
+            Assert.AreEqual(actual, expected);
+        }
+
+        /// <summary>
+        /// test case 4.3
+        /// Constructor Not Proper Should Throw MoodAnalysisException
+        /// </summary>
+        [TestCase]
+        public void AnalyserMoodContructorTest()
+        {
+            HappyOrSadMood mood = new HappyOrSadMood("hjbdvysezbgv");
+            string actual = mood.AnalyseMood();
+            string expected = null;
+            Assert.AreEqual(actual, expected);
         }
     }
 }

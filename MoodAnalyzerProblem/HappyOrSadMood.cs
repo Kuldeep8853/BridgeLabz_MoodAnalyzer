@@ -1,5 +1,5 @@
 ﻿// --------------------------------------------------------------------------------------------------------------------
-// <copyright file=HappyOrSadMood.cs" Company="Bridgelabz">
+// <copyright Project=MoodAnalyzerProblem" Company="Bridgelabz">
 //   Copyright © 2020 Company="BridgeLabz"
 // </copyright>
 // <creator name="Kuldeep Kasaudhan"/>
@@ -13,28 +13,33 @@ namespace MoodAnalyzerProblem
     /// </summary>
     public class HappyOrSadMood
     {
-        private string message;
+        private string Message
+        {
+            get;
+            set;
+        }
 
         public HappyOrSadMood()
         {
+
         }
-        public HappyOrSadMood(string mesaage)
+        public HappyOrSadMood(string message)
         {
-            message = mesaage;
+            this.Message = message;
         }
         public string AnalyseMood()
         {
             try
             {
-                if (message != null)
+                if (Message != null)
                 {
-                    if (message.Contains("sad"))
+                    if (Message.Contains("sad"))
                     {
                         return "Sad";
                     }
                     else
                     {
-                        if (message.Contains("happy"))
+                        if (Message.Contains("happy"))
                             return "Happy";
                     }
                 }
@@ -48,7 +53,17 @@ namespace MoodAnalyzerProblem
                 return e.Message;
             }
             return null;
+        }
 
+        public override bool Equals(object obj)
+        {
+            Type type = Type.GetType("MoodAnalyzerProblem.HappyOrSadMood");
+            Console.WriteLine(obj.GetType().ToString());
+            Console.WriteLine(type.FullName.ToString());
+            if (type.FullName.ToString().Equals(obj.GetType().ToString()))
+                return true;
+            else
+                return false;
         }
     }
 }
