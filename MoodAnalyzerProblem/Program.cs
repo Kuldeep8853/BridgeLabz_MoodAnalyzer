@@ -8,7 +8,7 @@ namespace MoodAnalyzerProblem
         {
             Console.WriteLine("Enter the mood message: ");
             string message = Console.ReadLine();
-            HappyOrSadMood mood = new HappyOrSadMood();
+            HappyOrSadMood mood = new HappyOrSadMood(message);
             bool actual = mood.Equals(MoodFactory.CreatehappyOrSadMood("HappyOrSadMood"));
             Console.WriteLine(actual);
 

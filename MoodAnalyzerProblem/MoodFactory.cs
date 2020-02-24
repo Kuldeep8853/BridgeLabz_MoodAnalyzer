@@ -4,6 +4,7 @@
 // </copyright>
 // <creator name="Kuldeep Kasaudhan"/>
 // --------------------------------------------------------------------------------------------------------------------
+using System;
 
 namespace MoodAnalyzerProblem
 {
@@ -11,9 +12,11 @@ namespace MoodAnalyzerProblem
     {
         public static HappyOrSadMood CreatehappyOrSadMood(string type)
         {
-            if(type.Equals("HappyOrSadMood"))
+            Console.WriteLine("Enter the mood message: ");
+            string message = Console.ReadLine();
+            if (type.Equals("HappyOrSadMood"))
             {
-                return new HappyOrSadMood();
+                return new HappyOrSadMood(message);
             }
             return null;
         }

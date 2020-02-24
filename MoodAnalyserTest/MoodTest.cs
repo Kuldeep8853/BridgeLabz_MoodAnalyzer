@@ -19,7 +19,7 @@ namespace MoodAnalyserTest
         [TestCase]
         public void AnalyserMoodObjectTest()
         {
-                HappyOrSadMood mood = new HappyOrSadMood();
+                HappyOrSadMood mood = new HappyOrSadMood("I am in sad mood");
                  bool actual = mood.Equals(MoodFactory.CreatehappyOrSadMood("HappyOrSadMood"));
                    bool expected = true; 
                 Assert.AreEqual(actual, expected);
@@ -32,7 +32,7 @@ namespace MoodAnalyserTest
         [TestCase]
         public void AnalyserMoodExceptionTest()
         {
-            HappyOrSadMood mood = new HappyOrSadMood();
+            HappyOrSadMood mood = new HappyOrSadMood(null);
             string actual = mood.AnalyseMood();
             string expected = "null exception caught";
             Assert.AreEqual(actual, expected);

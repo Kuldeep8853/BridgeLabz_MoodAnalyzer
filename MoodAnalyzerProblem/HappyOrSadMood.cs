@@ -18,11 +18,6 @@ namespace MoodAnalyzerProblem
             get;
             set;
         }
-
-        public HappyOrSadMood()
-        {
-
-        }
         public HappyOrSadMood(string message)
         {
             this.Message = message;
