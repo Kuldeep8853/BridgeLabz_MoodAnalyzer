@@ -5,9 +5,11 @@
 // <creator name="Kuldeep Kasaudhan"/>
 // ----------------------------------------------------------------------------------------------------------------------
 using System;
+using System.Reflection;
 
 namespace MoodAnalyzerProblem
 {
+   
     /// <summary>
     /// Check mood sad or happy
     /// </summary>
@@ -23,15 +25,16 @@ namespace MoodAnalyzerProblem
         {
 
         }
+
         public HappyOrSadMood(string message)
         {
-            this.Message = message;
+           this.Message = message;
         }
         public string AnalyseMood()
         {
             try
             {
-                if (Message != null)
+                if (this.Message != null)
                 {
                     if (Message.Contains("sad"))
                     {
@@ -54,14 +57,18 @@ namespace MoodAnalyzerProblem
             }
             return null;
         }
-
         public override bool Equals(object obj)
         {
-            Type type = Type.GetType("MoodAnalyzerProblem.HappyOrSadMood");
+            if (obj == null)
+                return false;
+            
             Console.WriteLine(obj.GetType().ToString());
+            Type type = (Type)obj;
             Console.WriteLine(type.FullName.ToString());
-            if (type.FullName.ToString().Equals(obj.GetType().ToString()))
+            if (this.GetType().ToString().Equals(type.FullName))
+            {
                 return true;
+            }
             else
                 return false;
         }

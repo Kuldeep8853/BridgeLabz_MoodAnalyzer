@@ -20,7 +20,7 @@ namespace MoodAnalyzerProblem
         /// Constructor of the custom exception
         /// </summary>
         /// <param name="err"></param>
-        public MoodAnalyzerException( string err)
+        public MoodAnalyzerException( string err)            
         {
             err_msg = err;
         }

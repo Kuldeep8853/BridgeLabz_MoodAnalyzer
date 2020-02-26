@@ -6,6 +6,8 @@
 // --------------------------------------------------------------------------------------------------------------------
 using MoodAnalyzerProblem;
 using NUnit.Framework;
+using System;
+using System.Reflection;
 
 namespace MoodAnalyserTest
 {
@@ -19,10 +21,12 @@ namespace MoodAnalyserTest
         [TestCase]
         public void AnalyserMoodObjectTest()
         {
-                HappyOrSadMood mood = new HappyOrSadMood();
-                 bool actual = mood.Equals(MoodFactory.CreatehappyOrSadMood("HappyOrSadMood"));
-                   bool expected = true; 
-                Assert.AreEqual(actual, expected);
+            Type type = MoodFactory.CreateHappyOrSadMoodUsingReflection("MoodAnalyzerProblem.HappyOrSadMood");
+            ConstructorInfo constructorInfo = type.GetConstructor(Type.EmptyTypes);
+            object classObject = constructorInfo.Invoke(new object[] { });
+            bool actual = classObject.Equals(type);
+            bool expected = true; 
+            Assert.AreEqual(actual, expected);
         }
 
         /// <summary>
@@ -32,9 +36,12 @@ namespace MoodAnalyserTest
         [TestCase]
         public void AnalyserMoodExceptionTest()
         {
-            HappyOrSadMood mood = new HappyOrSadMood();
-            string actual = mood.AnalyseMood();
-            string expected = "null exception caught";
+            Type type = MoodFactory.CreateHappyOrSadMoodUsingReflection("MoodAnalyzerProblem.HappyOrSadMood");
+            ConstructorInfo constructorInfo = type.GetConstructor(Type.EmptyTypes);
+            object classObject = constructorInfo.Invoke(new object[] { });
+            Type type1 = MoodFactory.CreateHappyOrSadMoodUsingReflection("wrong class name");
+            bool actual = classObject.Equals(type1);
+            bool expected = false;
             Assert.AreEqual(actual, expected);
         }
 
@@ -45,7 +52,7 @@ namespace MoodAnalyserTest
         [TestCase]
         public void AnalyserMoodContructorTest()
         {
-            HappyOrSadMood mood = new HappyOrSadMood("hjbdvysezbgv");
+            HappyOrSadMood mood = new HappyOrSadMood("mxbvyusgvjcbka");
             string actual = mood.AnalyseMood();
             string expected = null;
             Assert.AreEqual(actual, expected);
