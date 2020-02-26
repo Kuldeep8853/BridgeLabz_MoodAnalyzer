@@ -6,6 +6,8 @@
 // --------------------------------------------------------------------------------------------------------------------
 using MoodAnalyzerProblem;
 using NUnit.Framework;
+using System;
+using System.Reflection;
 
 namespace MoodAnalyserTest
 {
@@ -19,10 +21,15 @@ namespace MoodAnalyserTest
         [TestCase]
         public void AnalyserMoodObjectTest()
         {
-                HappyOrSadMood mood = new HappyOrSadMood("I am in sad mood");
-                 bool actual = mood.Equals(MoodFactory.CreatehappyOrSadMood("HappyOrSadMood"));
-                   bool expected = true; 
-                Assert.AreEqual(actual, expected);
+            Type type = typeof(MoodAnalyzerProblem.HappyOrSadMood);
+            ConstructorInfo constructorInfoObj = type.GetConstructor(BindingFlags.Instance | BindingFlags.Public, null, new[] { typeof(string) }, null);
+            Console.WriteLine(constructorInfoObj.GetType());
+            Console.WriteLine(constructorInfoObj.IsPublic);
+            object classObject = constructorInfoObj.Invoke(new object[] { "I am in sad mood" });
+            Type type1 = MoodFactory.CreateHappyOrSadMoodUsingReflection("MoodAnalyzerProblem.HappyOrSadMood");
+            bool actual = classObject.Equals(type1);
+            bool expected = true;
+            Assert.AreEqual(actual, expected);
         }
 
         /// <summary>
@@ -32,9 +39,12 @@ namespace MoodAnalyserTest
         [TestCase]
         public void AnalyserMoodExceptionTest()
         {
-            HappyOrSadMood mood = new HappyOrSadMood(null);
-            string actual = mood.AnalyseMood();
-            string expected = "null exception caught";
+            Type type = typeof(MoodAnalyzerProblem.HappyOrSadMood);
+            ConstructorInfo constructorInfoObj = type.GetConstructor(BindingFlags.Instance | BindingFlags.Public, null, new[] { typeof(string) }, null);
+            object classObject = constructorInfoObj.Invoke(new object[] { "I am in sad mood" });
+            Type type1 = MoodFactory.CreateHappyOrSadMoodUsingReflection("Wrong class name");
+            bool actual = classObject.Equals(type1);
+            bool expected = false;
             Assert.AreEqual(actual, expected);
         }
 

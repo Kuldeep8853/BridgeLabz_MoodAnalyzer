@@ -5,6 +5,7 @@
 // <creator name="Kuldeep Kasaudhan"/>
 // --------------------------------------------------------------------------------------------------------------------
 using System;
+using System.Reflection;
 
 namespace MoodAnalyzerProblem
 {
@@ -12,13 +13,31 @@ namespace MoodAnalyzerProblem
     {
         public static HappyOrSadMood CreatehappyOrSadMood(string type)
         {
-            Console.WriteLine("Enter the mood message: ");
-            string message = Console.ReadLine();
+
             if (type.Equals("HappyOrSadMood"))
-            {
-                return new HappyOrSadMood(message);
-            }
+
+                return new HappyOrSadMood("I am in sad mood");
+
             return null;
+
         }
+
+        public static Type CreateHappyOrSadMoodUsingReflection(string classname)
+        {
+            try
+            {
+                Type type = Type.GetType(classname);
+                if (type == null)
+                {
+                    throw new MoodAnalyzerException("exception caught class name");
+                }
+                return type;
+            }
+            catch (MoodAnalyzerException ex)
+            {
+                return null;
+            }
+        }
+
     }
 }
