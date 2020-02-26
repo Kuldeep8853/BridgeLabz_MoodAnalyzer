@@ -7,7 +7,7 @@ namespace MoodAnalyzerProblem
     {
         public static void Main()
         {
-            HappyOrSadMood result = MoodFactory.CreateHappyOrSadMoodUsingReflection("MoodAnalyzerProblem.HappyOrSadMood");
+            HappyOrSadMood result = MoodFactory.MoodAnalyserReflector("MoodAnalyzerProblem.HappyOrSadMood");
             Console.WriteLine(result.AnalyseMood()+" Mood");
             //Type type = Type.GetType("MoodAnalyzerProblem.HappyOrSadMood");
             //Console.WriteLine(type.FullName);
