@@ -22,7 +22,7 @@ namespace MoodAnalyzerProblem
 
         }
 
-        public static Type CreateHappyOrSadMoodUsingReflection(string classname)
+        public static HappyOrSadMood CreateHappyOrSadMoodUsingReflection(string classname)
         {
             try
             {
@@ -31,11 +31,30 @@ namespace MoodAnalyzerProblem
                 {
                     throw new MoodAnalyzerException("exception caught class name");
                 }
-                return type;
+                ConstructorInfo constructorInfoObj = type.GetConstructor(BindingFlags.Instance | BindingFlags.Public, null, new[] { typeof(string) }, null);
+                HappyOrSadMood classObject = (HappyOrSadMood)constructorInfoObj.Invoke(new object[] { "I am in happy mood" });
+                //classObject.AnalyseMood();
+                return classObject;
+                
             }
             catch (MoodAnalyzerException ex)
             {
-                return null;
+                 throw ex;
+            }
+        }
+        public static string MoodAnalyserReflector(string method)
+        {
+            try
+            {
+                Type type = Type.GetType("MoodAnalyzerProblem.HappyOrSadMood");
+                ConstructorInfo constructorInfoObj = type.GetConstructor(BindingFlags.Instance | BindingFlags.Public, null, new[] { typeof(string) }, null);
+                HappyOrSadMood classObject = (HappyOrSadMood)constructorInfoObj.Invoke(new object[] { "I am in happy mood" });
+                MethodInfo methodInfo = type.GetMethod(method);
+                return methodInfo.GetMethodBody().ToString();
+            }
+            catch( MoodAnalyzerException)
+            {
+                return new MoodAnalyzerException("No Such Method Error").ToString();
             }
         }
 

@@ -15,7 +15,7 @@ namespace MoodAnalyzerProblem
     /// </summary>
     public class HappyOrSadMood
     {
-        private string Message
+        public string Message
         {
             get;
             set;
@@ -34,7 +34,7 @@ namespace MoodAnalyzerProblem
         {
             try
             {
-                if (this.Message != null)
+                if (Message != null)
                 {
                     if (Message.Contains("sad"))
                     {
