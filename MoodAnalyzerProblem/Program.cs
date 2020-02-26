@@ -16,6 +16,7 @@ namespace MoodAnalyzerProblem
             bool actual = classObject.Equals(type1);
             Console.WriteLine(actual);
 
+
             //Console.WriteLine();
             //Type type = Type.GetType("MoodAnalyzerProblem.HappyOrSadMood");
             //Console.WriteLine(type.FullName);

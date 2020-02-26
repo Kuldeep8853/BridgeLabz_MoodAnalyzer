@@ -16,7 +16,7 @@ namespace MoodAnalyzerProblem
 
             if (type.Equals("HappyOrSadMood"))
 
-                return new HappyOrSadMood("I am in sad mood");
+                return new HappyOrSadMood();
 
             return null;
 

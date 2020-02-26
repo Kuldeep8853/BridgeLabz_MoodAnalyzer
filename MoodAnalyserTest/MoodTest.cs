@@ -15,7 +15,7 @@ namespace MoodAnalyserTest
     public class Tests
     {
         /// <summary>
-        /// test case 5.1
+        /// test case 4.1
         /// check Object are equal are not
         /// </summary>
         [TestCase]
@@ -23,17 +23,16 @@ namespace MoodAnalyserTest
         {
             Type type = typeof(MoodAnalyzerProblem.HappyOrSadMood);
             ConstructorInfo constructorInfoObj = type.GetConstructor(BindingFlags.Instance | BindingFlags.Public, null, new[] { typeof(string) }, null);
-            Console.WriteLine(constructorInfoObj.GetType());
-            Console.WriteLine(constructorInfoObj.IsPublic);
             object classObject = constructorInfoObj.Invoke(new object[] { "I am in sad mood" });
             Type type1 = MoodFactory.CreateHappyOrSadMoodUsingReflection("MoodAnalyzerProblem.HappyOrSadMood");
             bool actual = classObject.Equals(type1);
+            Console.WriteLine(actual);
             bool expected = true;
             Assert.AreEqual(actual, expected);
         }
 
         /// <summary>
-        /// test case 5.2
+        /// test case 4.2
         /// Throw exception 
         /// </summary>
         [TestCase]
@@ -44,18 +43,19 @@ namespace MoodAnalyserTest
             object classObject = constructorInfoObj.Invoke(new object[] { "I am in sad mood" });
             Type type1 = MoodFactory.CreateHappyOrSadMoodUsingReflection("Wrong class name");
             bool actual = classObject.Equals(type1);
+            Console.WriteLine(actual);
             bool expected = false;
             Assert.AreEqual(actual, expected);
         }
 
         /// <summary>
-        /// test case 5.3
+        /// test case 4.3
         /// Constructor Not Proper Should Throw MoodAnalysisException
         /// </summary>
         [TestCase]
         public void AnalyserMoodContructorTest()
         {
-            HappyOrSadMood mood = new HappyOrSadMood("hjbdvysezbgv");
+            HappyOrSadMood mood = new HappyOrSadMood("mxbvyusgvjcbka");
             string actual = mood.AnalyseMood();
             string expected = null;
             Assert.AreEqual(actual, expected);
