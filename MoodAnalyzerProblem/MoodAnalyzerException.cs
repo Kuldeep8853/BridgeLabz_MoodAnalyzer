@@ -8,30 +8,34 @@ using System;
 
 namespace MoodAnalyzerProblem
 {
+    public enum ExceptionEvents
+    {
+        EMPTY,
+        NULL,
+        No_Such_Class_Error,
+        No_Such_Method_Error
+    }
     /// <summary>
     /// custom exception throw MoodAnalyzerException 
     /// </summary>
     [Serializable]
-   public class MoodAnalyzerException: Exception
-    { 
-        private string err_msg;
-
+    public class MoodAnalyzerException : Exception
+    {
         /// <summary>
-        /// Constructor of the custom exception
+        /// Default Constructor of the custom exception
         /// </summary>
-        /// <param name="err"></param>
-        public MoodAnalyzerException( string err)            
+        public MoodAnalyzerException() : base()
         {
-            err_msg = err;
+
+        }
+        /// <summary>
+        /// parameterized constructor of the custom exception
+        /// </summary>
+        /// <param name="Enum value"></param>
+        public MoodAnalyzerException(string Message) : base(Message)
+        {
+
         }
 
-        public override string Message
-        {
-            get
-            {
-                return err_msg;
-            }
-        }
-       
     }
 }
