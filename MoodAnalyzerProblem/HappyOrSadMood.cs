@@ -13,42 +13,46 @@ namespace MoodAnalyzerProblem
     /// </summary>
     public class HappyOrSadMood
     {
-        private string message;
 
+        private string Message;
+
+        /// <summary>
+        /// Default Contrucor
+        /// </summary>
         public HappyOrSadMood()
         {
         }
+        /// <summary>
+        /// parameterized constructor
+        /// </summary>
+        /// <param name="mesaage"></param>
         public HappyOrSadMood(string mesaage)
         {
-            message = mesaage;
+            this.Message = mesaage;
         }
         public string AnalyseMood()
         {
             try
             {
-                if (message != null)
+                if (this.Message == null)
                 {
-                    if (message.Contains("sad"))
-                    {
+                    throw new MoodAnalyzerException(ExceptionEvents.NULL + "");
+                }
+                else if (this.Message == "")
+                {
+                    throw new MoodAnalyzerException(ExceptionEvents.EMPTY+"");
+                }
+                else if (this.Message.Contains("sad"))
+                {
                         return "Sad";
-                    }
-                    else
-                    {
-                        if (message.Contains("happy"))
-                            return "Happy";
-                    }
                 }
                 else
-                {
-                    throw new MoodAnalyzerException("null exception caught");
-                }
+                        return "Happy";
             }
-            catch (MoodAnalyzerException e)
+            catch (MoodAnalyzerException ex)
             {
-                return e.Message;
+                return ex.Message;
             }
-            return null;
-
         }
     }
 }
