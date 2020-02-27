@@ -20,9 +20,9 @@ namespace MoodAnalyzerProblem
         /// Constructor of the custom exception
         /// </summary>
         /// <param name="err"></param>
-        public MoodAnalyzerException( string err)
+        public MoodAnalyzerException( )
         {
-            err_msg = err;
+            err_msg = "No_Such_Method_Error";
         }
 
         public override string Message

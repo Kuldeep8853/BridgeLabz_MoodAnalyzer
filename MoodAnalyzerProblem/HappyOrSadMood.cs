@@ -48,7 +48,7 @@ namespace MoodAnalyzerProblem
                 }
                 else
                 {
-                    throw new MoodAnalyzerException("null exception caught");
+                    throw new MoodAnalyzerException();
                 }
             }
             catch (MoodAnalyzerException e)

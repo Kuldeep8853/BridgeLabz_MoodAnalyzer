@@ -31,13 +31,13 @@ namespace MoodAnalyserTest
         /// test case 6.2
         /// When Improper Method Should Throw MoodAnalysisException
         /// </summary>
-        //[TestCase]
-        //public void AnalyserMoodExceptionTest()
-        //{
-        //    string actual = MoodFactory.MoodAnalyserReflector("zdgbdxjmcgbmujh");
-        //    Console.WriteLine(actual);
-        //    string expected = "Happy";
-        //    Assert.AreEqual(actual, expected);
-        //}
+        [TestCase]
+        public void AnalyserMoodExceptionTest()
+        {
+            string actual = MoodFactory.MoodAnalyserReflector1("zdgbdxjmcgbmujh");
+            Console.WriteLine(actual);
+            string expected = "MoodAnalyzerProblem.MoodAnalyzerException: No_Such_Method_Error";
+            Assert.AreEqual(actual, expected);
+        }
     }
 }

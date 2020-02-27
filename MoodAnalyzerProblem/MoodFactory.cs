@@ -26,22 +26,49 @@ namespace MoodAnalyzerProblem
         {
             try
             {
-                Type type = Type.GetType(classname);
+                Type type = Type.GetType("MoodAnalyzerProblem.HappyOrSadMood");
                 if (type == null)
                 {
-                    throw new MoodAnalyzerException("exception caught class name");
+                    throw new MoodAnalyzerException();
                 }
                 ConstructorInfo constructorInfoObj = type.GetConstructor(BindingFlags.Instance | BindingFlags.Public, null, new[] { typeof(string) }, null);
                 HappyOrSadMood classObject = (HappyOrSadMood)constructorInfoObj.Invoke(new object[] { "I am in happy mood" });
                 //classObject.AnalyseMood();
                 return classObject;
-                
+
             }
             catch (MoodAnalyzerException ex)
             {
-                 throw ex;
+                throw ex;
             }
         }
-       
+        public static string MoodAnalyserReflector1(string methodName)
+        {
+          
+            Assembly executing = Assembly.GetExecutingAssembly();
+
+            Type type = executing.GetType("MoodAnalyzerProblem.HappyOrSadMood");
+                //Console.WriteLine("Class : {0}", type.Name);
+           
+                // Array to store methods 
+                MethodInfo[] methods = type.GetMethods();
+                foreach (var method in methods)
+                {
+                    // Display each method 
+                    //Console.WriteLine("--> Method : {0}", method.Name);
+                    if (method.Name.Equals(methodName))
+                    {
+                        return "Present the method inside class";
+
+                    }
+                    else
+                    {
+                    return new MoodAnalyzerException().ToString();
+                    }
+                }
+           
+            return null; 
+
+        }
     }
 }
