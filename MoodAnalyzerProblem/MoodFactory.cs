@@ -70,5 +70,29 @@ namespace MoodAnalyzerProblem
             return null; 
 
         }
-    }
+        public static string ChangeMoodDynamically(string message)
+        {
+            Assembly executing = Assembly.GetExecutingAssembly();
+            Type type = executing.GetType("MoodAnalyzerProblem.HappyOrSadMood");
+            ConstructorInfo constructorInfoObj = type.GetConstructor(BindingFlags.Instance | BindingFlags.Public, null, new[] { typeof(string) }, null);
+            HappyOrSadMood myObject = (HappyOrSadMood)constructorInfoObj.Invoke(new object[] { "I am in any mood" });
+            //Console.WriteLine(myObject.Message);
+            PropertyInfo prop = myObject.GetType().GetProperty("Message", BindingFlags.Public | BindingFlags.Instance);
+            try
+            {
+                if (message != null)
+                {
+
+                    prop.SetValue(myObject, message, null);
+                    return myObject.AnalyseMood();
+                }
+                else
+                    throw new MoodAnalyzerException(ExceptionEvents.Null + "");
+            }
+            catch (MoodAnalyzerException ex)
+            {
+                return ex.Message;
+            }
+        }
+    }   
 }

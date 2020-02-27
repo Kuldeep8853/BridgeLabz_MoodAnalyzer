@@ -15,28 +15,37 @@ namespace MoodAnalyserTest
     public class Tests
     {
         /// <summary>
-        /// test case 6.1
+        /// test case 7.1
         ///Using Reflection When Proper Should Return HAPPY Mood
         /// </summary>
         [TestCase]
         public void AnalyserMoodHappyTest()
         {
-            HappyOrSadMood result = MoodFactory.MoodAnalyserReflector("MoodAnalyzerProblem.HappyOrSadMood");
-            string actual = result.AnalyseMood().ToString() + " Mood";
-            string expected = "Happy Mood";
+            string actual = MoodFactory.ChangeMoodDynamically("I am in happy mood");
+            string expected = "Happy";
             Assert.AreEqual(actual, expected);
         }
 
         /// <summary>
-        /// test case 6.2
-        /// When Improper Method Should Throw MoodAnalysisException
+        /// test case 7.2
+        /// When  set the improper value and the Throw MoodAnalysisException
         /// </summary>
         [TestCase]
         public void AnalyserMoodExceptionTest()
         {
-            string actual = MoodFactory.MoodAnalyserReflector1("zdgbdxjmcgbmujh");
-            Console.WriteLine(actual);
-            string expected = "MoodAnalyzerProblem.MoodAnalyzerException: No_Such_Method_Error";
+            string actual = MoodFactory.ChangeMoodDynamically("rtdkmduygkly");
+            string expected = "No_Such_Field_Error";
+            Assert.AreEqual(actual, expected);
+        }
+        /// <summary>
+        /// Test case 7.3
+        /// Setting Null Message with Reflector Should Throw Exception
+        /// </summary>
+       [TestCase]
+        public void AnalyserMoodNullExceptionTest()
+        {
+            string actual = MoodFactory.ChangeMoodDynamically(null);
+            string expected = "Null";
             Assert.AreEqual(actual, expected);
         }
     }

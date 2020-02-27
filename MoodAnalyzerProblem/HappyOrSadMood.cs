@@ -34,7 +34,7 @@ namespace MoodAnalyzerProblem
         {
             try
             {
-                if (Message != null)
+                if (Message.Contains("sad") || Message.Contains("happy"))
                 {
                     if (Message.Contains("sad"))
                     {
@@ -46,9 +46,13 @@ namespace MoodAnalyzerProblem
                             return "Happy";
                     }
                 }
+                else if(Message==null)
+                {
+                    throw new MoodAnalyzerException(ExceptionEvents.Null+"");
+                }
                 else
                 {
-                    throw new MoodAnalyzerException();
+                    throw new MoodAnalyzerException(ExceptionEvents.No_Such_Field_Error + "");
                 }
             }
             catch (MoodAnalyzerException e)
@@ -57,20 +61,6 @@ namespace MoodAnalyzerProblem
             }
             return null;
         }
-        public override bool Equals(object obj)
-        {
-            if (obj == null)
-                return false;
-
-            Console.WriteLine(obj.GetType().ToString());
-            Type type = (Type)obj;
-            Console.WriteLine(type.FullName.ToString());
-            if (this.GetType().ToString().Equals(type.FullName))
-            {
-                return true;
-            }
-            else
-                return false;
-        }
+       
     }
 }

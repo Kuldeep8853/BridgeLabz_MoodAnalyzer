@@ -8,29 +8,30 @@ using System;
 
 namespace MoodAnalyzerProblem
 {
+    public enum ExceptionEvents {
+        EMPTY, 
+        Null,
+        No_Such_Class_Error,
+        No_Such_Method_Error,
+        No_Such_Field_Error
+    };
     /// <summary>
     /// custom exception throw MoodAnalyzerException 
     /// </summary>
     [Serializable]
    public class MoodAnalyzerException: Exception
-    { 
-        private string err_msg;
+    {
+        public MoodAnalyzerException() : base()
+        {
 
+        }
         /// <summary>
         /// Constructor of the custom exception
         /// </summary>
-        /// <param name="err"></param>
-        public MoodAnalyzerException( )
+        /// <param name="Enum value"></param>
+        public MoodAnalyzerException(string Err_msg ):base(Err_msg)
         {
-            err_msg = "No_Such_Method_Error";
-        }
-
-        public override string Message
-        {
-            get
-            {
-                return err_msg;
-            }
+            
         }
        
     }
