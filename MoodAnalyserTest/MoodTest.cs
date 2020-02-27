@@ -54,7 +54,7 @@ namespace MoodAnalyserTest
         /// <summary>
         /// test case 3.1
         /// Given Empty Mood
-        /// Should Throw MoodAnalysisException indicating Empty Mood
+        /// Should Throw MoodAnalysisException indicating null Mood
         /// </summary>
         [TestCase]
         public void MoodAnalysisNullExceptionTest()
@@ -64,6 +64,13 @@ namespace MoodAnalyserTest
                 string actualResult = mood.AnalyseMood();
                 Assert.AreEqual(actualResult, expected);
         }
+
+        /// <summary>
+        /// test case 3.2
+        /// Given Empty Mood
+        /// Should Throw MoodAnalysisException indicating null Mood
+        /// </summary>
+        [TestCase]
         public void MoodAnalysisEmptyExceptionTest()
         {
             HappyOrSadMood mood = new HappyOrSadMood("");
