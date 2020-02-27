@@ -7,8 +7,8 @@ namespace MoodAnalyserTest
     public class Tests
     {
         /// <summary>
-        /// test case 1.1 
-        /// test for sad mood
+        /// Test case 1.1 
+        /// Test for sad mood
         /// </summary>
         [TestCase]
         public void AnalyseSadMoodTest()
@@ -20,13 +20,13 @@ namespace MoodAnalyserTest
         }
 
         /// <summary>
-        /// test case 1.2
-        /// test for any mood
+        /// Test case 1.2
+        /// Test for any mood
         /// </summary>
         [TestCase]
         public void AnalyseHappyMoodTest()
         {
-            HappyOrSadMood mood = new HappyOrSadMood("I am in any mood");
+            HappyOrSadMood mood = new HappyOrSadMood("I am in happy mood");
             string expected = "Happy";
             string actualResult = mood.AnalyseMood();
             Assert.AreEqual(actualResult, expected);
