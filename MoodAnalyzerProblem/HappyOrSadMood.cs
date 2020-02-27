@@ -12,33 +12,42 @@ namespace MoodAnalyzerProblem
     /// Check mood sad or happy
     /// </summary>
     public class HappyOrSadMood {
-        private string message;
 
+        private string Message;
+
+        /// <summary>
+        /// Default Contrucor
+        /// </summary>
         public HappyOrSadMood()
         {
         }
+
+        /// <summary>
+        /// parameterized constructor
+        /// </summary>
+        /// <param name="mesaage"></param>
         public HappyOrSadMood(string mesaage)
         {
-            message = mesaage;
+            Message = mesaage;
         }
         public string AnalyseMood()
         {
             try
             {
-                if (message == null)
+                if (Message != null)
                 {
-                    throw new NullReferenceException();
-                }
-                if (message.Contains("sad"))
-                {
-                    return "Sad";
+                    if (Message.Contains("sad"))
+                    {
+                        return "Sad";
+                    }
+                    else
+                        return "Happy";
                 }
                 else
-                    return "Happy";
+                    throw new Exception();
             }
-            catch (NullReferenceException)
+            catch (Exception)
             {
-                Console.WriteLine("NULL EXCEPTION CAUGHT");
                 return "Happy";
             }
         }
