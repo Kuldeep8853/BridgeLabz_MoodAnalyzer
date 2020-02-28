@@ -56,6 +56,7 @@ namespace MoodAnalyzerProblem
                 return "Happy";
             }
         }
+
         public static string ChangeMoodDynamically(string message)
         {
             Assembly executing = Assembly.GetExecutingAssembly();

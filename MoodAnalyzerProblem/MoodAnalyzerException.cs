@@ -17,7 +17,6 @@ namespace MoodAnalyzerProblem
         Parameter_Count_Mismatch,
         No_Such_Field_Error
     }
-
     /// <summary>
     /// custom exception throw MoodAnalyzerException 
     /// </summary>

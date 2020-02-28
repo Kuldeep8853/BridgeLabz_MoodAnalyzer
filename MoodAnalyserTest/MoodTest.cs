@@ -204,6 +204,7 @@ namespace MoodAnalyserTest
             string expected = "No_Such_Field_Error";
             Assert.AreEqual(actual, expected);
         }
+
         /// <summary>
         /// Test case 7.3
         /// Setting Null Message with Reflector Should Throw Exception

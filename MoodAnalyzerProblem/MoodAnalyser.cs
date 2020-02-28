@@ -21,6 +21,7 @@ namespace MoodAnalyzerProblem
         {
 
         }
+
         /// <summary>
         /// parameterized constructor
         /// </summary>
@@ -29,7 +30,6 @@ namespace MoodAnalyzerProblem
         {
             this.Message = mesaage;
         }
-
         public string AnalyseMood()
         {
             try
