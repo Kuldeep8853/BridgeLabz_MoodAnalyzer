@@ -16,6 +16,15 @@ namespace MoodAnalyzerProblem
 
         private string Message;
 
+        /// <summary>
+        /// parameterized constructor
+        /// </summary>
+        /// <param name="mesaage"></param>
+        public MoodAnalyser(string mesaage)
+        {
+            this.Message = mesaage;
+        }
+
         public string AnalyseMood()
         {
             try
