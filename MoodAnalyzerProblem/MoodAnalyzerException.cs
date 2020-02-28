@@ -8,34 +8,33 @@ using System;
 
 namespace MoodAnalyzerProblem
 {
-    public enum ExceptionEvents {
-        EMPTY, 
-        Null,
+    public enum ExceptionEvents
+    {
+        EMPTY,
+        NULL,
         No_Such_Class_Error,
         No_Such_Method_Error,
+        Parameter_Count_Mismatch,
         No_Such_Field_Error
-    };
+    }
+
     /// <summary>
     /// custom exception throw MoodAnalyzerException 
     /// </summary>
     [Serializable]
-   public class MoodAnalyzerException: Exception
+    public class MoodAnalyzerException : Exception
     {
         /// <summary>
         /// Default Constructor of the custom exception
         /// </summary>
-        public MoodAnalyzerException() : base()
-        {
-
-        }
         /// <summary>
         /// parameterized constructor of the custom exception
         /// </summary>
         /// <param name="Enum value"></param>
-        public MoodAnalyzerException(string Err_msg ):base(Err_msg)
+        public MoodAnalyzerException(string Message) : base(Message)
         {
-            
+
+
         }
-       
     }
 }
