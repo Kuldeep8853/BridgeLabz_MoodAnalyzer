@@ -85,7 +85,6 @@ namespace MoodAnalyserTest
         [TestCase]
         public void AnalyserMoodObjectTest()
         {
-
             MoodAnalyser MoodReflectionObject = MoodAnalyserFactory.CreateMoodAnalyserObject("MoodAnalyzerProblem.MoodAnalyser");
             MoodAnalyser mood = new MoodAnalyser();
             bool actual = mood.Equals(MoodReflectionObject);
@@ -114,7 +113,9 @@ namespace MoodAnalyserTest
         [TestCase]
         public void AnalyserMoodContructorTest()
         {
-            MoodAnalyser MoodReflectionObject = MoodAnalyserFactory.CreateMoodAnalyserObject2("MoodAnalyzerProblem.MoodAnalyser");
+            string[] ctor = new string[2];
+            ctor[0] = "HAPPY";
+            MoodAnalyser MoodReflectionObject = MoodAnalyserFactory.CreateMoodAnalyserObject("MoodAnalyzerProblem.MoodAnalyser",ctor);
             MoodAnalyser mood = new MoodAnalyser();
             bool actual = mood.Equals(MoodReflectionObject);
             bool expected = false;
@@ -127,7 +128,6 @@ namespace MoodAnalyserTest
         [TestCase]
         public void AnalyserMoodObjectTest1()
         {
-
             MoodAnalyser MoodReflectionObject = MoodAnalyserFactory.CreateMoodAnalyserObject("MoodAnalyzerProblem.MoodAnalyser");
             MoodAnalyser mood = new MoodAnalyser("I am in Happy mood");
             bool actual = mood.Equals(MoodReflectionObject);
@@ -156,7 +156,9 @@ namespace MoodAnalyserTest
         [TestCase]
         public void AnalyserMoodContructorTest1()
         {
-            MoodAnalyser MoodReflectionObject = MoodAnalyserFactory.CreateMoodAnalyserObject2("MoodAnalyzerProblem.MoodAnalyser");
+            string[] ctor = new string[2];
+            ctor[0] = "HAPPY";
+            MoodAnalyser MoodReflectionObject = MoodAnalyserFactory.CreateMoodAnalyserObject("MoodAnalyzerProblem.MoodAnalyser",ctor);
             MoodAnalyser mood = new MoodAnalyser("I am in Happy mood");
             bool actual = mood.Equals(MoodReflectionObject);
             bool expected = false;

@@ -16,11 +16,16 @@ namespace MoodAnalyzerProblem
 
         private string Message;
 
+        public MoodAnalyser()
+        {
+           
+        }
+
         /// <summary>
         /// parameterized constructor
         /// </summary>
         /// <param name="mesaage"></param>
-        public MoodAnalyser(string mesaage=null)
+        public MoodAnalyser(string mesaage)
         {
             this.Message = mesaage;
         }
@@ -54,9 +59,7 @@ namespace MoodAnalyzerProblem
             if (obj == null)
                 return false;
             if (this.GetType().Equals(((MoodAnalyser)obj).GetType()))
-            {
                 return true;
-            }
             return false;
         }
     }

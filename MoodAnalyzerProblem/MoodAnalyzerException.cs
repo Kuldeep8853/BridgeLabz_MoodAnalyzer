@@ -13,7 +13,8 @@ namespace MoodAnalyzerProblem
         EMPTY,
         NULL,
         No_Such_Class_Error,
-        No_Such_Method_Error
+        No_Such_Method_Error,
+        Parameter_Count_Mismatch
     }
     /// <summary>
     /// custom exception throw MoodAnalyzerException 
