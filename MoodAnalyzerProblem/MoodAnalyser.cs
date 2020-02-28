@@ -20,7 +20,7 @@ namespace MoodAnalyzerProblem
         /// parameterized constructor
         /// </summary>
         /// <param name="mesaage"></param>
-        public MoodAnalyser(string mesaage)
+        public MoodAnalyser(string mesaage=null)
         {
             this.Message = mesaage;
         }
@@ -59,8 +59,5 @@ namespace MoodAnalyzerProblem
             }
             return false;
         }
-
-
     }
-
 }

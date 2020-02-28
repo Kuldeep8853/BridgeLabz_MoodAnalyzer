@@ -78,54 +78,54 @@ namespace MoodAnalyserTest
             Assert.AreEqual(actualResult, expected);
         }
 
-        /* /// <summary>
-         /// Test case 4.1
-         /// check Object are equal are not
-         /// </summary>
-         [TestCase]
-         public void AnalyserMoodObjectTest()
-         {
+        /// <summary>
+        /// Test case 4.1
+        /// check Object are equal are not
+        /// </summary>
+        [TestCase]
+        public void AnalyserMoodObjectTest()
+        {
 
-             MoodAnalyser MoodReflectionObject = MoodAnalyserFactory.CreateMoodAnalyserObject("MoodAnalyzerProblem.MoodAnalyser");
-             MoodAnalyser mood = new MoodAnalyser();
-             bool actual = mood.Equals(MoodReflectionObject);
-             bool expected = true;
-             Assert.AreEqual(actual, expected);
-         }
+            MoodAnalyser MoodReflectionObject = MoodAnalyserFactory.CreateMoodAnalyserObject("MoodAnalyzerProblem.MoodAnalyser");
+            MoodAnalyser mood = new MoodAnalyser();
+            bool actual = mood.Equals(MoodReflectionObject);
+            bool expected = true;
+            Assert.AreEqual(actual, expected);
+        }
 
-         /// <summary>
-         /// Test case 4.2
-         /// Throw exception 
-         /// </summary>
-         [TestCase]
-         public void AnalyserMoodExceptionTest()
-         {
-             MoodAnalyser MoodReflectionObject = MoodAnalyserFactory.CreateMoodAnalyserObject("Wrong class name");
-             MoodAnalyser mood = new MoodAnalyser();
-             bool actual = mood.Equals(MoodReflectionObject);
-             bool expected = false;
-             Assert.AreEqual(actual, expected);
-         }
+        /// <summary>
+        /// Test case 4.2
+        /// Throw exception 
+        /// </summary>
+        [TestCase]
+        public void AnalyserMoodExceptionTest()
+        {
+            MoodAnalyser MoodReflectionObject = MoodAnalyserFactory.CreateMoodAnalyserObject("Wrong class name");
+            MoodAnalyser mood = new MoodAnalyser();
+            bool actual = mood.Equals(MoodReflectionObject);
+            bool expected = false;
+            Assert.AreEqual(actual, expected);
+        }
 
-         /// <summary>
-         /// Test case 4.3
-         /// Constructor Not Proper Should Throw MoodAnalysisException
-         /// </summary>
-         [TestCase]
-         public void AnalyserMoodContructorTest()
-         {
-             MoodAnalyser MoodReflectionObject = MoodAnalyserFactory.CreateMoodAnalyserObject2("MoodAnalyzerProblem.MoodAnalyser");
-             MoodAnalyser mood = new MoodAnalyser();
-             bool actual = mood.Equals(MoodReflectionObject);
-             bool expected = false;
-             Assert.AreEqual(actual, expected);
-         }*/
+        /// <summary>
+        /// Test case 4.3
+        /// Constructor Not Proper Should Throw MoodAnalysisException
+        /// </summary>
+        [TestCase]
+        public void AnalyserMoodContructorTest()
+        {
+            MoodAnalyser MoodReflectionObject = MoodAnalyserFactory.CreateMoodAnalyserObject2("MoodAnalyzerProblem.MoodAnalyser");
+            MoodAnalyser mood = new MoodAnalyser();
+            bool actual = mood.Equals(MoodReflectionObject);
+            bool expected = false;
+            Assert.AreEqual(actual, expected);
+        }
         /// <summary>
         /// Test case 5.1
         /// check Object are equal are not
         /// </summary>
         [TestCase]
-        public void AnalyserMoodObjectTest()
+        public void AnalyserMoodObjectTest1()
         {
 
             MoodAnalyser MoodReflectionObject = MoodAnalyserFactory.CreateMoodAnalyserObject("MoodAnalyzerProblem.MoodAnalyser");
@@ -140,7 +140,7 @@ namespace MoodAnalyserTest
         /// Throw exception 
         /// </summary>
         [TestCase]
-        public void AnalyserMoodExceptionTest()
+        public void AnalyserMoodExceptionTest1()
         {
             MoodAnalyser MoodReflectionObject = MoodAnalyserFactory.CreateMoodAnalyserObject("Wrong class name");
             MoodAnalyser mood = new MoodAnalyser("I am in Happy mood");
@@ -154,7 +154,7 @@ namespace MoodAnalyserTest
         /// Constructor Not Proper Should Throw MoodAnalysisException
         /// </summary>
         [TestCase]
-        public void AnalyserMoodContructorTest()
+        public void AnalyserMoodContructorTest1()
         {
             MoodAnalyser MoodReflectionObject = MoodAnalyserFactory.CreateMoodAnalyserObject2("MoodAnalyzerProblem.MoodAnalyser");
             MoodAnalyser mood = new MoodAnalyser("I am in Happy mood");
