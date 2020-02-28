@@ -175,7 +175,6 @@ namespace MoodAnalyserTest
             string expected = "Happy";
             Assert.AreEqual(actual, expected);
         }
-
         /// <summary>
         /// test case 6.2
         /// When Improper Method Should Throw MoodAnalysisException

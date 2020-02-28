@@ -32,6 +32,7 @@ namespace MoodAnalyzerProblem
         public MoodAnalyzerException(string Message) : base(Message)
         {
 
+
         }
     }
 }

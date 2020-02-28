@@ -20,7 +20,6 @@ namespace MoodAnalyzerProblem
         {
 
         }
-
         /// <summary>
         /// parameterized constructor
         /// </summary>

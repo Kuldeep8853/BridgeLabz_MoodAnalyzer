@@ -7,6 +7,7 @@ namespace MoodAnalyzerProblem
     {
         public static void Main()
         {
+
            Console.WriteLine( MoodAnalyserReflector.MoodAnalyserReflector1("AnalyseMood"));
         }
     }

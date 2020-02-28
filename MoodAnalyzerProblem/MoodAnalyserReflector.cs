@@ -34,6 +34,7 @@ namespace MoodAnalyzerProblem
                 return null;
             }
         }
+        
         public static string MoodAnalyserReflector1(string methodName)
         {
             try
