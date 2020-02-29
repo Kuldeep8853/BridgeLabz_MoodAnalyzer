@@ -6,12 +6,13 @@
 // --------------------------------------------------------------------------------------------------------------------
 using System;
 using System.Reflection;
+using System.Runtime.InteropServices;
 
 namespace MoodAnalyzerProblem
 {
     public class MoodAnalyserReflector
     {
-        public static object CreateMoodAnalyserObject(string className, object[] ConstructorArgument = null)
+        public static object CreateMoodAnalyserObject(string className, [Optional]object[] ConstructorArgument)
         {
             try
             {

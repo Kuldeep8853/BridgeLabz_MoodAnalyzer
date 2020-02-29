@@ -140,7 +140,7 @@ namespace MoodAnalyserTest
             ctor[0] = "HAPPY";
             object MoodReflectionObject = MoodAnalyserReflector.CreateMoodAnalyserObject("MoodAnalyzerProblem.MoodAnalyser", ctor);
             string actual = MoodReflectionObject.ToString();
-            string expected = ExceptionEvents.No_Such_Method_Error.ToString();
+            string expected = "No_Such_Method_Error";
             Assert.AreEqual(actual, expected);
         }
         /// <summary>
