@@ -12,7 +12,7 @@ namespace MoodAnalyzerProblem
 {
     public class MoodAnalyserFactory
     {
-        public static MoodAnalyser CreateMoodAnalyserObject(string className)
+        public static object CreateMoodAnalyserObject(string className)
         {
             try
             {
@@ -27,11 +27,11 @@ namespace MoodAnalyzerProblem
             }
             catch(MoodAnalyzerException ex)
             {
-                Console.WriteLine(ex.Message);
-                return null;
+                return ex.msg;
+                
             }
         }
-        public static MoodAnalyser CreateMoodAnalyserObject2(string className)
+        public static object CreateMoodAnalyserObject2(string className)
         {
             try
             {
@@ -50,8 +50,8 @@ namespace MoodAnalyzerProblem
             }
             catch (MoodAnalyzerException ex)
             {
-                Console.WriteLine(ex.Message);
-                return null;
+                return ex.msg;
+                
             }
         }
     }
