@@ -11,7 +11,7 @@ namespace MoodAnalyzerProblem
 {
     public class MoodAnalyserReflector
     {
-        public static MoodAnalyser CreateMoodAnalyserObject(string className, object[] ConstructorArgument = null)
+        public static object CreateMoodAnalyserObject(string className, object[] ConstructorArgument = null)
         {
             try
             {
@@ -25,16 +25,14 @@ namespace MoodAnalyzerProblem
             }
             catch (MoodAnalyzerException ex)
             {
-                Console.WriteLine(ex.Message);
-                return null;
+                return ex.msg;
             }
-            catch (MissingMethodException e)
+            catch (MissingMethodException)
             {
-                Console.WriteLine(e.Message);
-                return null;
+                return ExceptionEvents.No_Such_Method_Error.ToString();
             }
         }
-        
+
         public static string MoodAnalyserReflector1(string methodName)
         {
             try

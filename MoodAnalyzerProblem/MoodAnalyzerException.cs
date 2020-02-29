@@ -8,13 +8,17 @@ using System;
 
 namespace MoodAnalyzerProblem
 {
+    /// <summary>
+    /// Define enum collection of exception events
+    /// </summary>
     public enum ExceptionEvents
     {
         EMPTY,
         NULL,
         No_Such_Class_Error,
         No_Such_Method_Error,
-        Parameter_Count_Mismatch
+        Parameter_Count_Mismatch,
+        No_Such_Field_Error
     }
     /// <summary>
     /// custom exception throw MoodAnalyzerException 
@@ -22,17 +26,15 @@ namespace MoodAnalyzerProblem
     [Serializable]
     public class MoodAnalyzerException : Exception
     {
-        /// <summary>
-        /// Default Constructor of the custom exception
-        /// </summary>
+        public string msg;
+
         /// <summary>
         /// parameterized constructor of the custom exception
         /// </summary>
-        /// <param name="Enum value"></param>
-        public MoodAnalyzerException(string Message) : base(Message)
+        /// <param name="Message"></param>
+        public MoodAnalyzerException(string Message)
         {
-
-
+            this.msg = Message;
         }
     }
 }
