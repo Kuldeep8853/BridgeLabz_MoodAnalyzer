@@ -11,27 +11,25 @@ namespace MoodAnalyzerProblem
 {
     public class MoodAnalyserFactory
     {
-        public static MoodAnalyser CreateMoodAnalyserObject(string className,object[] ConstructorArgument=null)
+        public static object CreateMoodAnalyserObject(string className, object[] ConstructorArgument = null)
         {
             try
             {
                 Type type = Type.GetType(className);
                 if (type == null)
                     throw new MoodAnalyzerException(ExceptionEvents.No_Such_Class_Error + "");
-                MoodAnalyser MoodObject = (MoodAnalyser)Activator.CreateInstance(type,ConstructorArgument);
+                MoodAnalyser MoodObject = (MoodAnalyser)Activator.CreateInstance(type, ConstructorArgument);
                 if (MoodObject == null)
                     throw new MoodAnalyzerException(ExceptionEvents.No_Such_Method_Error + "");
                 return MoodObject;
             }
             catch (MoodAnalyzerException ex)
             {
-                  Console.WriteLine(ex.Message);
-                return null;
+                return ex.msg;
             }
-            catch( MissingMethodException e)
+            catch (MissingMethodException)
             {
-                Console.WriteLine(e.Message);
-                return null;
+                return ExceptionEvents.No_Such_Method_Error.ToString();
             }
         }
     }

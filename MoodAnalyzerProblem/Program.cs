@@ -7,7 +7,7 @@ namespace MoodAnalyzerProblem
     {
         public static void Main()
         {
-            MoodAnalyser MoodReflectionObject = MoodAnalyserFactory.CreateMoodAnalyserObject("Wrong class name");
+            object MoodReflectionObject = MoodAnalyserFactory.CreateMoodAnalyserObject("Wrong class name");
             MoodAnalyser mood = new MoodAnalyser("I am in Happy mood");
             bool actual = mood.Equals(MoodReflectionObject);
             Console.WriteLine(actual);
