@@ -38,19 +38,6 @@ namespace MoodAnalyserTest
         }
 
         /// <summary>
-        /// Test case 2.1
-        /// Test for any mood
-        /// </summary>
-        //[TestCase]
-        public void AnalyserMoodNULLTest()
-        {
-            MoodAnalyser mood = new MoodAnalyser(null);
-            string expected = "Happy";
-            string actualResult = mood.AnalyseMood();
-            Assert.AreEqual(actualResult, expected);
-        }
-
-        /// <summary>
         /// Test case 3.1
         /// Given Empty Mood
         /// Should Throw MoodAnalysisException indicating null Mood
