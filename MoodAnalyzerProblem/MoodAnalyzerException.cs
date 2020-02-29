@@ -8,6 +8,9 @@ using System;
 
 namespace MoodAnalyzerProblem
 {
+    /// <summary>
+    /// Define enum collection of exception events
+    /// </summary>
     public enum ExceptionEvents
     {
         EMPTY,
@@ -23,17 +26,15 @@ namespace MoodAnalyzerProblem
     [Serializable]
     public class MoodAnalyzerException : Exception
     {
-        /// <summary>
-        /// Default Constructor of the custom exception
-        /// </summary>
+        public string msg;
+
         /// <summary>
         /// parameterized constructor of the custom exception
         /// </summary>
-        /// <param name="Enum value"></param>
-        public MoodAnalyzerException(string Message) : base(Message)
+        /// <param name="Message"></param>
+        public MoodAnalyzerException(string Message)
         {
-
-
+            this.msg = Message;
         }
     }
 }

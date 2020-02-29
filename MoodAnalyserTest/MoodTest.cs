@@ -60,8 +60,8 @@ namespace MoodAnalyserTest
         {
             MoodAnalyser mood = new MoodAnalyser(null);
             string expected = "NULL";
-            string actualResult = mood.AnalyseMood();
-            Assert.AreEqual(actualResult, expected);
+            string actual = mood.AnalyseMood();
+            Assert.AreEqual(actual, expected);
         }
         /// <summary>
         /// Test case 3.2
@@ -73,8 +73,8 @@ namespace MoodAnalyserTest
         {
             MoodAnalyser mood = new MoodAnalyser("");
             string expected = "EMPTY";
-            string actualResult = mood.AnalyseMood();
-            Assert.AreEqual(actualResult, expected);
+            string actual = mood.AnalyseMood();
+            Assert.AreEqual(actual, expected);
         }
 
         /// <summary>
@@ -84,7 +84,7 @@ namespace MoodAnalyserTest
         [TestCase]
         public void AnalyserMoodObjectTest()
         {
-            MoodAnalyser MoodReflectionObject = MoodAnalyserReflector.CreateMoodAnalyserObject("MoodAnalyzerProblem.MoodAnalyser");
+            MoodAnalyser MoodReflectionObject = (MoodAnalyser)MoodAnalyserReflector.CreateMoodAnalyserObject("MoodAnalyzerProblem.MoodAnalyser");
             MoodAnalyser mood = new MoodAnalyser();
             bool actual = mood.Equals(MoodReflectionObject);
             bool expected = true;
@@ -97,10 +97,9 @@ namespace MoodAnalyserTest
         [TestCase]
         public void AnalyserMoodExceptionTest()
         {
-            MoodAnalyser MoodReflectionObject = MoodAnalyserReflector.CreateMoodAnalyserObject("Wrong class name");
-            MoodAnalyser mood = new MoodAnalyser();
-            bool actual = mood.Equals(MoodReflectionObject);
-            bool expected = false;
+            object MoodReflectionObject = MoodAnalyserReflector.CreateMoodAnalyserObject("Wrong class name");
+            string actual = MoodReflectionObject.ToString();
+            string expected = "No_Such_Class_Error";
             Assert.AreEqual(actual, expected);
         }
 
@@ -113,20 +112,19 @@ namespace MoodAnalyserTest
         {
             string[] ctor = new string[2];
             ctor[0] = "HAPPY";
-            MoodAnalyser MoodReflectionObject = MoodAnalyserReflector.CreateMoodAnalyserObject("MoodAnalyzerProblem.MoodAnalyser", ctor);
-            MoodAnalyser mood = new MoodAnalyser();
-            bool actual = mood.Equals(MoodReflectionObject);
-            bool expected = false;
+            object MoodReflectionObject = MoodAnalyserReflector.CreateMoodAnalyserObject("MoodAnalyzerProblem.MoodAnalyser", ctor);
+            string actual = MoodReflectionObject.ToString();
+            string expected = "No_Such_Method_Error";
             Assert.AreEqual(actual, expected);
         }
         /// <summary>
         /// Test case 5.1
-        /// check Object are equal are not
+        /// check Object are equal
         /// </summary>
         [TestCase]
         public void AnalyserMoodObjectTest1()
         {
-            MoodAnalyser MoodReflectionObject = MoodAnalyserReflector.CreateMoodAnalyserObject("MoodAnalyzerProblem.MoodAnalyser");
+            MoodAnalyser MoodReflectionObject = (MoodAnalyser)MoodAnalyserReflector.CreateMoodAnalyserObject("MoodAnalyzerProblem.MoodAnalyser");
             MoodAnalyser mood = new MoodAnalyser("I am in Happy mood");
             bool actual = mood.Equals(MoodReflectionObject);
             bool expected = true;
@@ -139,10 +137,9 @@ namespace MoodAnalyserTest
         [TestCase]
         public void AnalyserMoodExceptionTest1()
         {
-            MoodAnalyser MoodReflectionObject = MoodAnalyserReflector.CreateMoodAnalyserObject("Wrong class name");
-            MoodAnalyser mood = new MoodAnalyser("I am in Happy mood");
-            bool actual = mood.Equals(MoodReflectionObject);
-            bool expected = false;
+            object MoodReflectionObject = MoodAnalyserReflector.CreateMoodAnalyserObject("Wrong class name");
+            string actual = MoodReflectionObject.ToString();
+            string expected = "No_Such_Class_Error";
             Assert.AreEqual(actual, expected);
         }
         /// <summary>
@@ -154,10 +151,9 @@ namespace MoodAnalyserTest
         {
             string[] ctor = new string[2];
             ctor[0] = "HAPPY";
-            MoodAnalyser MoodReflectionObject = MoodAnalyserReflector.CreateMoodAnalyserObject("MoodAnalyzerProblem.MoodAnalyser", ctor);
-            MoodAnalyser mood = new MoodAnalyser("I am in Happy mood");
-            bool actual = mood.Equals(MoodReflectionObject);
-            bool expected = false;
+            object MoodReflectionObject = MoodAnalyserReflector.CreateMoodAnalyserObject("MoodAnalyzerProblem.MoodAnalyser", ctor);
+            string actual = MoodReflectionObject.ToString();
+            string expected = ExceptionEvents.No_Such_Method_Error.ToString();
             Assert.AreEqual(actual, expected);
         }
         /// <summary>

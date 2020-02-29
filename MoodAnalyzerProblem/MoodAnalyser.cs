@@ -53,7 +53,7 @@ namespace MoodAnalyzerProblem
             }
             catch (MoodAnalyzerException ex)
             {
-                return ex.Message;
+                return ex.msg;
             }
         }
         public override bool Equals(object obj)
