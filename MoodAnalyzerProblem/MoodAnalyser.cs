@@ -32,8 +32,8 @@ namespace MoodAnalyzerProblem
         }
         public string AnalyseMood()
         {
-            try
-            {
+            //try
+            //{
                 if (this.Message == null)
                 {
                     throw new MoodAnalyzerException(ExceptionEvents.NULL + "");
@@ -50,11 +50,11 @@ namespace MoodAnalyzerProblem
                     return "Happy";
                 else
                     return null;
-            }
-            catch (MoodAnalyzerException ex)
-            {
-                return ex.msg;
-            }
+            //}
+            //catch (MoodAnalyzerException ex)
+            //{
+            //    return ex.msg;
+            //}
         }
         public override bool Equals(object obj)
         {

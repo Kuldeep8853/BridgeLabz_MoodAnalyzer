@@ -46,9 +46,8 @@ namespace MoodAnalyserTest
         public void MoodAnalysisNullExceptionTest()
         {
             MoodAnalyser mood = new MoodAnalyser(null);
-            string expected = "NULL";
-            string actual = mood.AnalyseMood();
-            Assert.AreEqual(actual, expected);
+            var ex = Assert.Throws<MoodAnalyzerException>(() => mood.AnalyseMood());
+            Assert.That(ex.msg, Is.EqualTo(ExceptionEvents.NULL.ToString()));
         }
         /// <summary>
         /// Test case 3.2
@@ -59,9 +58,8 @@ namespace MoodAnalyserTest
         public void MoodAnalysisEmptyExceptionTest()
         {
             MoodAnalyser mood = new MoodAnalyser("");
-            string expected = "EMPTY";
-            string actual = mood.AnalyseMood();
-            Assert.AreEqual(actual, expected);
+            var ex = Assert.Throws<MoodAnalyzerException>(() => mood.AnalyseMood());
+            Assert.That(ex.msg, Is.EqualTo(ExceptionEvents.EMPTY.ToString()));
         }
 
         /// <summary>
@@ -84,10 +82,8 @@ namespace MoodAnalyserTest
         [TestCase]
         public void AnalyserMoodExceptionTest()
         {
-            object MoodReflectionObject = MoodAnalyserReflector.CreateMoodAnalyserObject("Wrong class name");
-            string actual = MoodReflectionObject.ToString();
-            string expected = "No_Such_Class_Error";
-            Assert.AreEqual(actual, expected);
+            var ex = Assert.Throws<MoodAnalyzerException>(() => MoodAnalyserReflector.CreateMoodAnalyserObject("Wrong class name"));
+            Assert.That(ex.msg, Is.EqualTo(ExceptionEvents.No_Such_Class_Error.ToString()));
         }
 
         /// <summary>
@@ -98,11 +94,12 @@ namespace MoodAnalyserTest
         public void AnalyserMoodContructorTest()
         {
             string[] ctor = new string[2];
-            ctor[0] = "HAPPY";
+            ctor[0] = "I am in happy mood";
             object MoodReflectionObject = MoodAnalyserReflector.CreateMoodAnalyserObject("MoodAnalyzerProblem.MoodAnalyser", ctor);
             string actual = MoodReflectionObject.ToString();
             string expected = "No_Such_Method_Error";
             Assert.AreEqual(actual, expected);
+
         }
         /// <summary>
         /// Test case 5.1
@@ -124,10 +121,8 @@ namespace MoodAnalyserTest
         [TestCase]
         public void AnalyserMoodExceptionTest1()
         {
-            object MoodReflectionObject = MoodAnalyserReflector.CreateMoodAnalyserObject("Wrong class name");
-            string actual = MoodReflectionObject.ToString();
-            string expected = "No_Such_Class_Error";
-            Assert.AreEqual(actual, expected);
+            var ex = Assert.Throws<MoodAnalyzerException>(() => MoodAnalyserReflector.CreateMoodAnalyserObject("Wrong class name"));
+            Assert.That(ex.msg, Is.EqualTo(ExceptionEvents.No_Such_Class_Error.ToString()));
         }
         /// <summary>
         /// Test case 5.3
@@ -137,11 +132,12 @@ namespace MoodAnalyserTest
         public void AnalyserMoodContructorTest1()
         {
             string[] ctor = new string[2];
-            ctor[0] = "HAPPY";
+            ctor[0] = "I am in happy mood";
             object MoodReflectionObject = MoodAnalyserReflector.CreateMoodAnalyserObject("MoodAnalyzerProblem.MoodAnalyser", ctor);
             string actual = MoodReflectionObject.ToString();
             string expected = "No_Such_Method_Error";
             Assert.AreEqual(actual, expected);
+
         }
         /// <summary>
         /// test case 6.1
@@ -161,9 +157,8 @@ namespace MoodAnalyserTest
         [TestCase]
         public void AnalyserMoodExceptionTest2()
         {
-            string actual = MoodAnalyserReflector.MoodAnalyserReflector1("Wrong_Method_Name");
-            string expected = "Happy";
-            Assert.AreEqual(actual, expected);
+            var ex = Assert.Throws<MoodAnalyzerException>(() => MoodAnalyserReflector.MoodAnalyserReflector1("Wrong_Method_Name"));
+            Assert.That(ex.msg, Is.EqualTo(ExceptionEvents.No_Such_Method_Error.ToString()));
         }
         /// <summary>
         /// test case 7.1
@@ -183,9 +178,8 @@ namespace MoodAnalyserTest
         [TestCase]
         public void AnalyserMoodExceptionWithRefactot()
         {
-            string actual = MoodAnalyserReflector.ChangeMoodDynamically("Improper_Message");
-            string expected = "No_Such_Field_Error";
-            Assert.AreEqual(actual, expected);
+            var ex = Assert.Throws<MoodAnalyzerException>(() => MoodAnalyserReflector.ChangeMoodDynamically("Improper_Message"));
+            Assert.That(ex.msg, Is.EqualTo(ExceptionEvents.No_Such_Field_Error.ToString()));
         }
 
         /// <summary>
@@ -195,9 +189,8 @@ namespace MoodAnalyserTest
        [TestCase]
         public void AnalyserMoodNullExceptionWithRefacto()
         {
-            string actual = MoodAnalyserReflector.ChangeMoodDynamically(null);
-            string expected = "NULL";
-            Assert.AreEqual(actual, expected);
+            var ex = Assert.Throws<MoodAnalyzerException>(() => MoodAnalyserReflector.ChangeMoodDynamically(null));
+            Assert.That(ex.msg, Is.EqualTo(ExceptionEvents.NULL.ToString()));
         }
     }
 }

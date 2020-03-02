@@ -12,7 +12,7 @@ namespace MoodAnalyzerProblem
 {
     public class MoodAnalyserReflector
     {
-        public static object CreateMoodAnalyserObject(string className, [Optional]object[] ConstructorArgument)
+        public static object CreateMoodAnalyserObject(string className, object[] ConstructorArgument=null)
         {
             try
             {
@@ -20,24 +20,27 @@ namespace MoodAnalyzerProblem
                 if (type == null)
                     throw new MoodAnalyzerException(ExceptionEvents.No_Such_Class_Error + "");
                 MoodAnalyser MoodObject = (MoodAnalyser)Activator.CreateInstance(type, ConstructorArgument);
-                if (MoodObject == null)
-                    throw new MoodAnalyzerException(ExceptionEvents.No_Such_Method_Error + "");
+                //if (MoodObject == null)
+                //    throw new MoodAnalyzerException(ExceptionEvents.No_Such_Method_Error + "");
                 return MoodObject;
             }
-            catch (MoodAnalyzerException ex)
-            {
-                return ex.msg;
-            }
+                
+            //}
+            //catch (MoodAnalyzerException ex)
+            //{
+            //    return ex.msg;
+            //}
             catch (MissingMethodException)
             {
+                
                 return ExceptionEvents.No_Such_Method_Error.ToString();
             }
         }
 
         public static string MoodAnalyserReflector1(string methodName)
         {
-            try
-            {
+            //try
+            //{
                 Assembly executing = Assembly.GetExecutingAssembly();
                 Type type = executing.GetType("MoodAnalyzerProblem.MoodAnalyser");
                 MethodInfo methodInfo = type.GetMethod(methodName);
@@ -49,11 +52,11 @@ namespace MoodAnalyzerProblem
                 object classInstance = Activator.CreateInstance(type, parametersArray);
                 object result = methodInfo.Invoke(classInstance, null);
                 return result.ToString();
-            }
-            catch (MoodAnalyzerException)
-            {
-                return "Happy";
-            }
+            //}
+            //catch (MoodAnalyzerException)
+            //{
+            //    return "Happy";
+            //}
         }
 
         public static string ChangeMoodDynamically(string message)
@@ -63,8 +66,8 @@ namespace MoodAnalyzerProblem
             ConstructorInfo constructorInfoObj = type.GetConstructor(BindingFlags.Instance | BindingFlags.Public, null, new[] { typeof(string) }, null);
             MoodAnalyser myObject = (MoodAnalyser)constructorInfoObj.Invoke(new object[] { message });
             PropertyInfo prop = myObject.GetType().GetProperty("Message", BindingFlags.NonPublic | BindingFlags.Instance);
-            try
-            {
+            //try
+            //{
                 if (message != null)
                 {
                     prop.SetValue(myObject, message, null);
@@ -76,11 +79,11 @@ namespace MoodAnalyzerProblem
                 }
                 else
                     throw new MoodAnalyzerException(ExceptionEvents.NULL + "");
-            }
-            catch (MoodAnalyzerException ex)
-            {
-                return ex.msg;
-            }
+            //}
+            //catch (MoodAnalyzerException ex)
+            //{
+            //    return ex.msg;
+            //}
         }
     }   
 }

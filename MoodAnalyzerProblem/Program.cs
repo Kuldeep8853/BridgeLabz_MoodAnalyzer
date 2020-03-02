@@ -7,7 +7,13 @@ namespace MoodAnalyzerProblem
     {
         public static void Main()
         {
-           Console.WriteLine(MoodAnalyserReflector.ChangeMoodDynamically("Improper_Message"));
+            Type theType = Type.GetType("MoodAnalyzerProblem.MoodAnalyser");
+            Console.WriteLine("\nSingle Type is {0}\n", theType);
+            MemberInfo[] mbrInfoArray = theType.GetMembers();
+            foreach (MemberInfo mbrInfo in mbrInfoArray)
+            {
+                Console.WriteLine("{0}			{1}", mbrInfo.MemberType, mbrInfo.Name);
+            }
         }
 
     }
